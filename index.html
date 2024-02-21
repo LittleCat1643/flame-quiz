@@ -1,0 +1,187 @@
+<!-- Код написан Михаилом Батуриным в 2024 году. -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Игра «Пожарный Квиз» разработана учеником 7 «А» класса МОУ-Лицея №2 Михаилом Батуриным в 2024 году для областного конкурса по пожарной безопасности «Неопалимая купина» в номинации «Компьютерное творчество».">
+    <meta name="keywords" content="Пожарный Квиз, Неопалимая купина, компьютерное творчество.">
+    <title>Игра «Пожарный Квиз»</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-brands/css/uicons-brands.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap">
+    <link rel="shortcut icon" href="images/icon.png">
+</head>
+<body>
+    <div class="scenes">
+        <div class="home">
+            <div class="logo">
+                <h1>Пожарный <br><b>Квиз</b></h1>
+            </div>
+            <div class="extinguishers">
+                <h3>У вас <b>0</b> <i class="fi fi-sr-fire-extinguisher" style="color:var(--color-3)"></i></h3>
+            </div>
+            <div class="buttons">
+                <div class="play">
+                    <button onclick="homeScenePlayButton()"><i class="fi fi-sr-forward"></i></button>
+                    <h4>Играть</h4>
+                </div>
+                <div class="info">
+                    <button onclick="homeSceneInfoButton()"><i class="fi fi-sr-info"></i></button>
+                    <h4>Информация</h4>
+                </div>
+                <div class="exit">
+                    <button onclick="exitButton()"><i class="fi fi-sr-exit"></i></button>
+                    <h4>Выйти</h4>
+                </div>
+            </div>
+        </div>
+        <div class="location-select">
+            <div class="title">
+                <h2><button onclick="goBackButton()"><i class="fi fi-sr-exit"></i></button> Выбор локации</h2>
+            </div>
+            <div class="content">
+                <div class="location location-flat" onclick="locationSelectSceneGoToFlatLocationButton()">
+                    <div class="image"></div>
+                    <div class="text">
+                        <h3><i class="fi fi-sr-circle-1"></i> Квартира</h3>
+                    </div>
+                </div>
+                <div class="location location-nature" onclick="locationSelectSceneGoToNatureLocationButton()">
+                    <div class="image"></div>
+                    <div class="text">
+                        <h3><i class="fi fi-sr-circle-2"></i> Природа</h3>
+                    </div>
+                </div>
+                <span class="line-break"></span>
+                <div class="location location-transport" onclick="locationSelectSceneGoToTransportLocationButton()">
+                    <div class="image"></div>
+                    <div class="text">
+                        <h3><i class="fi fi-sr-circle-3"></i> Транспорт</h3>
+                    </div>
+                </div>
+                <div class="location location-history" onclick="locationSelectSceneGoToHistoryLocationButton()">
+                    <div class="image"></div>
+                    <div class="text">
+                        <h3><i class="fi fi-sr-circle-4"></i> История пожарной безопасности</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trophy">
+            <div class="title">
+                <h2><button onclick="goBackButton()"><i class="fi fi-sr-exit"></i></button> Достижения</h2>
+            </div>
+            <div class="content">
+                <div class="extinguishers">
+                    <h3>У вас <b></b> <i class="fi fi-sr-fire-extinguisher" style="color:var(--color-3)"></i></h3>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="title">
+                <h2><button onclick="goBackButton()"><i class="fi fi-sr-exit"></i></button> Информация</h2>
+            </div>
+            <div class="content">
+                <p>Игра «Пожарный Квиз» разработана учеником 7 «А» класса МОУ-Лицея №2 г. Саратова Михаилом Батуриным в 2024 году под руководством Матюхиной Натальи Александровны для областного конкурса по пожарной безопасности «Неопалимая купина» в номинации «Компьютерное творчество».</p>
+                <p>В данной игре Вам необходимо отвечать на вопросы, связанные с пожарной безопасностью в разных местах: в квартире, на природе или в общественном транспорте. За правильные ответы вам даются огнетушители (т. е. баллы).</p>
+                <div class="links">
+                    <div class="github">
+                        <a href="https://github.com/LittleCat1643/flame-quiz"><i class="fi fi-brands-github"></i></a>
+                    </div>
+                    <div class="telegram">
+                        <a href="https://t.me/littlebear2010"><i class="fi fi-brands-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="locations">
+        <div class="flat">
+            <div class="title">
+                <h2><button onclick="goToLocationSelectButton()"><i class="fi fi-sr-exit"></i></button> Квартира <div class="plus">+2 <i class="fi fi-sr-fire-extinguisher" style="color:var(--color-3);font-size:16px"></i></div></h2>
+            </div>
+            <div class="content">
+                <div class="question">
+                    <h3></h3>
+                </div>
+                <div class="answers">
+                    <div class="answer-1"></div>
+                    <div class="answer-2"></div>
+                    <span class="line-break"></span>
+                    <div class="answer-3"></div>
+                    <div class="answer-4"></div>
+                </div>
+                <div class="text">
+                    <h4>За правильный ответ вы получите <b>2</b> <i class="fi fi-sr-fire-extinguisher" style="color:var(--color-3)"></i></h4>
+                </div>
+            </div>
+        </div>
+        <div class="nature">
+            <div class="title">
+                <h2><button onclick="goToLocationSelectButton()"><i class="fi fi-sr-exit"></i></button> Природа <div class="plus">+4 <i class="fi fi-sr-fire-extinguisher" style="color:var(--color-3);font-size:16px"></i></div></h2>
+            </div>
+            <div class="content">
+                <div class="question">
+                    <h3></h3>
+                </div>
+                <div class="answers">
+                    <div class="answer-1"></div>
+                    <div class="answer-2"></div>
+                    <span class="line-break"></span>
+                    <div class="answer-3"></div>
+                    <div class="answer-4"></div>
+                </div>
+                <div class="text">
+                    <h4>За правильный ответ вы получите <b>4</b> <i class="fi fi-sr-fire-extinguisher" style="color:var(--color-3)"></i></h4>
+                </div>
+            </div>
+        </div>
+        <div class="transport">
+            <div class="title">
+                <h2><button onclick="goToLocationSelectButton()"><i class="fi fi-sr-exit"></i></button> Транспорт <div class="plus">+6 <i class="fi fi-sr-fire-extinguisher" style="color:var(--color-3);font-size:16px"></i></div></h2>
+            </div>
+            <div class="content">
+                <div class="question">
+                    <h3></h3>
+                </div>
+                <div class="answers">
+                    <div class="answer-1"></div>
+                    <div class="answer-2"></div>
+                    <span class="line-break"></span>
+                    <div class="answer-3"></div>
+                    <div class="answer-4"></div>
+                </div>
+                <div class="text">
+                    <h4>За правильный ответ вы получите <b>6</b> <i class="fi fi-sr-fire-extinguisher" style="color:var(--color-3)"></i></h4>
+                </div>
+            </div>
+        </div>
+        <div class="history">
+            <div class="title">
+                <h2><button onclick="goToLocationSelectButton()"><i class="fi fi-sr-exit"></i></button> История пожарной безопасности <div class="plus">+8 <i class="fi fi-sr-fire-extinguisher" style="color:var(--color-3);font-size:16px"></i></div></h2>
+            </div>
+            <div class="content">
+                <div class="question">
+                    <h3></h3>
+                </div>
+                <div class="answers">
+                    <div class="answer-1"></div>
+                    <div class="answer-2"></div>
+                    <span class="line-break"></span>
+                    <div class="answer-3"></div>
+                    <div class="answer-4"></div>
+                </div>
+                <div class="text">
+                    <h4>За правильный ответ вы получите <b>8</b> <i class="fi fi-sr-fire-extinguisher" style="color:var(--color-3)"></i></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

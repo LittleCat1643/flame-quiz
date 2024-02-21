@@ -1,0 +1,285 @@
+/*
+    Код написан Михаилом Батуриным в 2024 году.
+*/
+
+:root {
+    --color-1: #5f0f40;
+    --color-2: #9a031e;
+    --color-3: #fb8b24;
+    --color-4: #e36414;
+    --color-5: #0f4c5c;
+    --color-6: #ffffff;
+}
+
+* {
+    font-family: "Roboto Slab", serif;
+    transition: 0.3s;
+    user-select: none;
+}
+
+body {
+    background: url('images/background.png'), var(--color-5);
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.title {
+    padding: 20px;
+    text-align: center;
+}
+
+.title > h2 {
+    color: var(--color-6);
+    font-size: 50px;
+}
+
+button {
+    width: 90px;
+    height: 90px;
+    padding: 15px;
+    margin: 15px;
+    border: solid 3px var(--color-6);
+    background: url('images/button-background.png'), var(--color-3);
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position-y: 25px;
+    background-position-x: -5px;
+    color: var(--color-6);
+    border-radius: 15px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: url('images/button-background.png'), var(--color-4);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: 10px;
+    background-position-x: -5px;
+    transform: scale(1.1);
+}
+
+.line-break {
+    width: 100%;
+}
+
+.scenes > div {
+    text-align: center;
+    height: 100vh;
+}
+
+.scenes > *, .locations > * {
+    display: none;
+}
+
+.scenes > .home {
+    display: block;
+}
+
+.scenes > .home > .logo {
+    padding-top: 50px;
+}
+
+.scenes > .home > .logo > h1 {
+    text-align: center;
+    font-size: 40px;
+    padding: 20px;
+    color: var(--color-6);
+    letter-spacing: 5px;
+    font-weight: 500;
+}
+
+.scenes > .home > .logo > h1 > b {
+    color: var(--color-4);
+    font-weight: 900;
+    font-size: 80px;
+    line-height: 80px;
+}
+
+.scenes > .home > .logo > h1 > b:hover {
+    color: var(--color-3);
+}
+
+.scenes > .home > .buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.scenes > .home > .buttons > div > button {
+    width: 180px;
+    height: 180px;
+    padding: 30px;
+    margin: 30px;
+    border: solid 10px var(--color-6);
+    background-size: 75%;
+    background-position-y: 50px;
+    background-position-x: -10px;
+    border-radius: 30px;
+    font-size: 80px;
+}
+
+.scenes > .home > .buttons > div > h4 {
+    color: var(--color-6);
+    font-size: 24px;
+}
+
+.scenes > .home > .extinguishers {
+    padding: 15px;
+    border-radius: 15px;
+    background: var(--color-1);
+    margin: 10px 30% 10px 30%;
+    border: solid 3px var(--color-6);
+}
+
+.scenes > .home > .extinguishers > h3 {
+    font-size: 30px;
+    color: var(--color-6);
+    font-weight: 400;
+}
+
+.scenes > .location-select > .content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.scenes > .location-select > .content > .location {
+    width: 280px;
+    border: solid 3px var(--color-6);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    background: var(--color-1);
+    cursor: pointer;
+}
+
+.scenes > .location-select > .content > .location:hover {
+    background: var(--color-2);
+    transform: scale(1.1);
+}
+
+.scenes > .location-select > .content > .location > .image {
+    width: 260px;
+    height: 150px;
+    border: solid 3px var(--color-6);
+    border-radius: 12px;
+    margin-bottom: 15px !important;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+
+.scenes > .location-select > .content > .location > .text > h3 {
+    font-size: 30px;
+    color: var(--color-6);
+}
+
+.scenes > .location-select > .content > .location > .text > h3 > i {
+    font-size: 20px;
+}
+
+.scenes > .location-select > .content > .location-flat > .image {
+    background-image: url('images/flat.jpg');
+}
+
+.scenes > .location-select > .content > .location-nature > .image {
+    background-image: url('images/nature.jpg');
+}
+
+.scenes > .location-select > .content > .location-transport > .image {
+    background-image: url('images/transport.jpg');
+}
+
+.scenes > .location-select > .content > .location-history > .image {
+    background-image: url('images/history.jpg');
+}
+
+.scenes > .info > .content {
+    color: var(--color-6);
+    font-size: 26px;
+    line-height: 40px;
+    width: 70%;
+    margin: 10px 15% 10px 15%;
+}
+
+.scenes > .info > .content > .links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.scenes > .info > .content > .links > div {
+    margin: 20px;
+}
+
+.scenes > .info > .content > .links > div > a {
+    color: var(--color-6);
+    text-decoration: none;
+    font-size: 64px;
+}
+
+.scenes > .info > .content > .links > div > a > i:hover {
+    color: var(--color-3);
+}
+
+.locations > div > .title > h2 > .plus {
+    background: green;
+    width: 10%;
+    margin: 10px 45% 10px 45%;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+}
+
+.locations > div > .content {
+    position: relative;
+    bottom: 90px;
+}
+
+.locations > div > .content > .question {
+    padding: 30px;
+    margin: 30px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 26px;
+    background: var(--color-4);
+    border: solid 3px var(--color-6);
+}
+
+.locations > div > .content > .answers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.locations > div > .content > .answers > div {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 20px;
+    background: var(--color-3);
+    border: solid 3px var(--color-6);
+    width: 40%;
+    cursor: pointer;
+}
+
+.locations > div > .content > .answers > div:hover {
+    transform: scale(1.1);
+}
+
+.locations > div > .content > .text {
+    text-align: center;
+    color: #ffffff;
+}
+
+.locations > div > .content > .text > h4 {
+    font-weight: 400;
+    letter-spacing: 2px;
+}
